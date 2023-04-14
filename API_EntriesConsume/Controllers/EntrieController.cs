@@ -10,14 +10,14 @@ namespace API_EntriesConsume.Controllers
     {
         public IConfiguration Configuration { get; }
         private readonly ILogger<EntrieController> _logger;
-        private IGenericRepositoryBase _unitOfWork;
+        private IGenericRepositoryBase _genericRepositoryBase;
         private string? apiUrl = string.Empty;
 
-        public EntrieController(IGenericRepositoryBase unitOfWork, IConfiguration configuration, ILogger<EntrieController> logger)
+        public EntrieController(IGenericRepositoryBase genericRepositoryBase, IConfiguration configuration, ILogger<EntrieController> logger)
         {
             Configuration = configuration;
             apiUrl = Configuration.GetValue<string>("URLs:Entries");
-            _unitOfWork = unitOfWork;
+            _genericRepositoryBase = genericRepositoryBase;
             _logger = logger;
         }
 
@@ -29,7 +29,7 @@ namespace API_EntriesConsume.Controllers
 
             try
             {
-                items = await _unitOfWork.GetNodoHTTPS(boleano, apiUrl);
+                items = await _genericRepositoryBase.GetNodoHTTPS(boleano, apiUrl);
             }
             catch (Exception ex)
             {
@@ -48,7 +48,7 @@ namespace API_EntriesConsume.Controllers
 
             try
             {
-                list = await _unitOfWork.GetCategory(apiUrl);
+                list = await _genericRepositoryBase.GetCategory(apiUrl);
             }
             catch (Exception ex)
             {
