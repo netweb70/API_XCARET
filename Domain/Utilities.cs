@@ -26,7 +26,6 @@ namespace Domain
                 if (!response.IsSuccessStatusCode)
                 {
                     sLogErr = (int)response.StatusCode + "-" + response.StatusCode.ToString();
-                    //_logger.LogError(sLogErr);
                     throw new Exception(sLogErr);
                 }
                 return response;
