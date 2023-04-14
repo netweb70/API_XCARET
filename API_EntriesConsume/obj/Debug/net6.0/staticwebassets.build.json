@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "xpcwlLfNIFkbLqsvrYQghYQWjakROytjuO/GQoWNwKk=",
+  "Source": "API_EntriesConsume",
+  "BasePath": "_content/API_EntriesConsume",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
